@@ -1,0 +1,33 @@
+<div class="main-div">
+    <mat-card>
+        <mat-card-title>
+            Login
+        </mat-card-title>
+        <mat-card-content>
+            <form (ngSubmit)="onSubmit(loginForm.value)" #loginForm="ngForm">
+                <div class="form-group">
+                    <label for="name">Username</label>
+                    <input type="text" class="form-control" id="user"
+                            required
+                            [ngModel]="user.user" name="user"
+                            #name="ngModel"
+                            (click)="credentialsChecker=false;">
+                </div>
+                <div class="form-group">
+                    <label for="name">Password</label>
+                    <input type="password" class="form-control" id="pass"
+                            required
+                            [ngModel]="user.pass" name="pass"
+                            #name="ngModel"
+                            (click)="credentialsChecker=false;">
+                </div>
+                <div *ngIf="credentialsChecker" class="incorrect">
+                    <p>Incorrect credentials entered!</p>
+                </div>
+                <div class="btn">
+                    <button type="submit" mat-raised-button color="primary">Login</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
